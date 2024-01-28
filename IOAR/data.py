@@ -377,7 +377,6 @@ class Dataset(torch.utils.data.Dataset):
 
         # occ_04 = np.abs(tsdf_04) < 0.999
         seen_04 = tsdf_04 < 0.999
-        # TODO: a typo should change inner to outer
         tsdf_04_inner_inds = tsdf_04 >= 0.999
         tsdf_04_outter_inds = tsdf_04 <= -0.999
         # tsdf_04_occ = np.abs(tsdf_04) < 0.999

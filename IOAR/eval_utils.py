@@ -20,8 +20,6 @@ def eval_tsdf(file_pred, file_trgt):
     # align prediction voxels to target voxels
     # we use align_corners=True here so that when shifting by integer number
     # of voxels we do not interpolate.
-    # TODO: verify align corners when we need to do interpolation (non integer
-    # voxel shifts)
     shift = (tsdf_trgt.origin - tsdf_pred.origin) / tsdf_trgt.voxel_size
     assert torch.allclose(shift, shift.round())
     tsdf_pred = tsdf_pred.transform(
